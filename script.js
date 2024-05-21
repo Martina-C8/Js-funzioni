@@ -1,15 +1,14 @@
 //1- crea una funzione che controlli due numeri interi. 
 //Ritorna true se uno dei sue è 50 o se la somma dei due è 50
 
-function controllaNumeri() {
-    var num1 = parseInt(prompt("Inserisci il primo numero"));
-    var num2 = parseInt(prompt("Inserisci il secondo numero"));
+function controllaNumeri(num1, num2) {
     if (num1 == 50 || num2 == 50 || num1 + num2 == 50) {
         return true;
     } else {
         return false;
     }
 }
+console.log(controllaNumeri(50, 69))
 
 //2- Crea una funzione che rimuova il carattere ad una specifica posizione 
 //da una stringa. Passa la stringa e la posizione come parametri 
@@ -26,15 +25,14 @@ function rimuoviCarattere() {
 e 60 o tra 70 e 100. 
 Ritorna true se rispecchaino queste condizioni, altrimenti false  */
 
-function controlloNumeri() {
-    var num1 = parseInt(prompt("Inserisci il primo numero"));
-    var num2 = parseInt(prompt("Inserisci il secondo numero"));
+function controlloNumeri(num1, num2) {
     if ((num1 >= 40 && num1 <= 60) || (num2 >= 40 && num2 <= 60) || (num1 + num2 >= 40 && num1 + num2 <= 60)) {
         return true;
     } else {
         return false;
     }
 }
+//console.log(controllaNumeri(78,89))
 
 /*4- Crea una funzione che accetti un nome di città come parametro e ritorni
 il nome stesso se inizia con "los" o "new", altrimenti ritorna false */
@@ -95,15 +93,16 @@ function tipoAngolo() {
 /*8- Crea una funzione che crei un acronimo a partire da una frase.
 Es. "Fabbrica Italiana Automobili Torino" deve ritornare "FIAT"
 */
-function acronimo() {
-    var frase = prompt("Inserisci una frase");
-    frase = frase.split(" ");
-    var acronimo = "";
-    for (var i = 0; i < frase.length; i++) {
-        acronimo += frase[i][0];
-    }
-    return acronimo;
-}
+// function acronimo() {
+//     var frase = prompt("Inserisci una frase");
+//     frase = frase.split(" ");
+//     var acronimo = "";
+//     for (var i = 0; i < frase.length; i++) {
+//         acronimo += frase[i][0];
+//     }
+//     return acronimo;
+// }
+
 
 /*NOTA: tutti gli esercizi devono essere svolti usando le funzioni
 1. Partendo da una stringa (passata come parametro), ritorna il carattere più usato nella stringa stessa. */
