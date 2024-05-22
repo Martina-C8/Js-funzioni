@@ -106,109 +106,75 @@ Es. "Fabbrica Italiana Automobili Torino" deve ritornare "FIAT"
 
 /*NOTA: tutti gli esercizi devono essere svolti usando le funzioni
 1. Partendo da una stringa (passata come parametro), ritorna il carattere più usato nella stringa stessa. */
-function piuUsato() {
-    var stringa = prompt("Inserisci una stringa");
-    var lettere = stringa.split("");
-    var lettereUsate = [];
-    var letteraPiuUsata = "";
-    var numeroPiuUsato = 0;
-    for (var i = 0; i < lettere.length; i++) {
-        if (lettereUsate.indexOf(lettere[i]) == -1) {
-            lettereUsate.push(lettere[i]);
+
+function piuUsato(parola) {
+    const frequenza = {}
+
+    //inizio ciclo for per iterare attraverso ogni carattere nella stringa
+    for (let lettera of parola)  {
+        if (frequenza[parola]) {
+            frequenza[parola]++;
+        } else {
+            frequenza[parola] = 1
         }
     }
 }
 
+
+
 /*NOTA: tutti gli esercizi devono essere svolti usando le funzioni
-2. Controlla che due stringhe passate come parametri siano gli anagrammi l’una dell’altra. Ignora punteggiatura e spazi e ricordate di rendere la stringa tutta in minuscolo. Se le due parole sono anagrammi, ritorna `true`, altrimenti ritorna `false`.*/ 
-function anagrammi() {
-    var stringa1 = prompt("Inserisci una stringa");
-    var stringa2 = prompt("Inserisci una seconda stringa");
-    stringa1 = stringa1.toLowerCase();
-    stringa2 = stringa2.toLowerCase();
-    stringa1 = stringa1.replace(/[^a-z]/g, "");
-    stringa2 = stringa2.replace(/[^a-z]/g, "");
-    if (stringa1 == stringa2) {
-        return true;
-    } else {
-        return false;
+2. Controlla che due stringhe passate come parametri siano gli anagrammi l’una dell’altra. 
+Ignora punteggiatura e spazi e ricordate di rendere la stringa tutta in minuscolo. Se le due parole sono anagrammi, ritorna `true`, altrimenti ritorna `false`.*/ 
+
+function areAnagrams(str1, str2) {
+    // Funzione per rimuovere spazi e punteggiatura e convertire la stringa in minuscolo
+    function cleanString(str) {
+        return str.replace(/[^a-z0-9]/gi, '').toLowerCase();
     }
+
+    // Pulire entrambe le stringhe
+    let cleanedStr1 = cleanString(str1);
+    let cleanedStr2 = cleanString(str2);
+
+    // Ordinare i caratteri di entrambe le stringhe
+    let sortedStr1 = cleanedStr1.split('').sort().join('');
+    let sortedStr2 = cleanedStr2.split('').sort().join('');
+
+    // Confrontare le stringhe ordinate
+    return sortedStr1 === sortedStr2;
 }
+//console.log(areAnagrams("Ciao", "oaiC"))
+//console.log(areAnagrams("ciao", "alessio"))
 
 
-/*3. crea una funzione che Partendo da una lista di possibili anagrammi e da una parola (entrambi passati come parametri), ritorna un nuovo array contenente tutti gli anagrammi corretti della parola data.
+
+/*3. crea una funzione che Partendo da una lista di possibili anagrammi e da una parola (entrambi passati come parametri), 
+ritorna un nuovo array contenente tutti gli anagrammi corretti della parola data.
 Per esempio, partendo da “cartine” e [”carenti”, “incerta”, “espatrio”], il valore ritornato deve essere [”carenti”, “incerta”]. */
-function anagrammi(){
-    var stringa1 = prompt("Inserisci una stringa");
-    var stringa2 = prompt("Inserisci una seconda stringa");
-    stringa1 = stringa1.toLowerCase();
-    stringa2 = stringa2.toLowerCase();
-    stringa1 = stringa1.replace(/[^a-z]/g, "");
-    stringa2 = stringa2.replace(/[^a-z]/g, "");
-    if (stringa1 == stringa2) {
-        return true;
-    } else {
-        return false;
-    }
-}
+
 
 /*4. crea una funzione che Partendo da una stringa passata come parametro, ritorna `true` se la stringa è palindroma o `false` se non lo è. */
 
-function stringaPalindroma(){
-    var stringa = prompt("Inserisci una stringa");
-    if (stringa == stringa.split("").reverse().join("")) {
-        return true;
-    } else {
-        return false;
-    }
-}
+
 
 /*5. crea una funzione che, Partendo da un numero intero (dai parametri) ritorna un numero che contenga le stesse cifre, ma in ordine contrario. Es. 189 ⇒ 981 */
-function numeroInverso(){
-    var numero = parseInt(prompt("Inserisci un numero"));
-    var numeroInverso = numero.toString().split("").reverse().join("");
-    return parseInt(numeroInverso);
-}
+
 
 /*6. Scrivi una funzione che accetti un numero positivo X come parametro. La funzione dovrebbe stampare a console una “scala” creata con il carattere “#” e avente X scalini. */
 
-function scala () {
-    var numero = parseInt(prompt("Inserisci un numero"));
-    for (var i = 0; i < numero; i++) {
-        console.log("#".repeat(numero));
-    }
-}
+
 
 /*7. Crea una funzione che, data una stringa come parametro, ritorni la stessa stringa, ma al contrario. Es. “Ciao” ****⇒ “oaiC” */
-function stringaInversa(){
-    var stringa = prompt("Inserisci una stringa");
-    return stringa.split("").reverse().join("");
-}
+
 
 /*8. Crea una funzione che accetti un array e un numero Y come parametro. Dividi l’array in sotto-array aventi lunghezza Y. */
-function arrayDiviso(){
-    var array = prompt("Inserisci un array");
-    var numero = parseInt(prompt("Inserisci un numero"));
-    var arrayDiviso = [];
-    for (var i = 0; i < array.length; i += numero) {
-        arrayDiviso.push(array.slice(i, i + numero));
-    }
-}
+
 
 /*9. Scrivi una funzione che accetti un numero positivo X come parametro. La funzione dovrebbe stampare a console una “piramide” create con il carattere “#” e avente X strati.
  */
 
 /*10. Scrivi una funzione che accetti un intero N e ritorni una matrice a spirale NxN: */
-function matriceSpirale(){
-    var numero = parseInt(prompt("Inserisci un numero"));
-    var matrice = [];
-    for (var i = 0; i < numero; i++) {
-        matrice[i] = [];
-        for (var j = 0; j < numero; j++) {
-            matrice[i][j] = 0;
-        }
-    }
-}
+
 
 
 
