@@ -153,7 +153,7 @@ function anagrammi1 (a, b){
 }
 }
 
-console.log(anagrammi1("Ciao", "Cristina"))
+//console.log(anagrammi1("Ciao", "Cristina"))
 
 
 
@@ -164,6 +164,14 @@ console.log(anagrammi1("Ciao", "Cristina"))
 ritorna un nuovo array contenente tutti gli anagrammi corretti della parola data.
 Per esempio, partendo da “cartine” e [”carenti”, “incerta”, “espatrio”], il valore ritornato deve essere [”carenti”, “incerta”]. */
 
+function anagrammaFinale (par1, par2) {
+    let array = []
+    for(let i = 0; i < par1.length; i++)
+        if (anagrammi1(par1[i], par2)){
+            array.push(par1[i])
+        } return array
+}
+console.log(anagrammi1(["ciao", "notizia"], "tiziano"))
 
 /*4. crea una funzione che Partendo da una stringa passata come parametro, ritorna `true` se la stringa è palindroma o `false` se non lo è. */
 
