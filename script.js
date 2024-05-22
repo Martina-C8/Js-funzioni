@@ -8,7 +8,7 @@ function controllaNumeri(num1, num2) {
         return false;
     }
 }
-console.log(controllaNumeri(50, 69))
+//console.log(controllaNumeri(50, 69))
 
 //2- Crea una funzione che rimuova il carattere ad una specifica posizione 
 //da una stringa. Passa la stringa e la posizione come parametri 
@@ -107,17 +107,19 @@ Es. "Fabbrica Italiana Automobili Torino" deve ritornare "FIAT"
 /*NOTA: tutti gli esercizi devono essere svolti usando le funzioni
 1. Partendo da una stringa (passata come parametro), ritorna il carattere più usato nella stringa stessa. */
 
-function piuUsato(parola) {
-    const frequenza = {}
+function extra1(string) {
+    let letteraPiuUsata  = ""
+    let count = 0 //variabile che serve per contare quante volte viene ripetuta una lettera
+    let arrayLettere = string.split("") //creo array dalla stringa con lo come parametro dello split il divisore
+    for(let i = 0; i < arrayLettere.length; i++ ) {
+        let calcoloSingolaLettera = string.split(string.charAt(i)).length-1 //splitto la stringa per il carattere che sto ciclando, tolgo 1
+        if (calcoloSingolaLettera > count) {
+            count = calcoloSingolaLettera
+            letteraPiuUsata = string.charAt(i)
+        } 
 
-    //inizio ciclo for per iterare attraverso ogni carattere nella stringa
-    for (let lettera of parola)  {
-        if (frequenza[parola]) {
-            frequenza[parola]++;
-        } else {
-            frequenza[parola] = 1
-        }
-    }
+    } return letteraPiuUsata
+    
 }
 
 
@@ -126,25 +128,35 @@ function piuUsato(parola) {
 2. Controlla che due stringhe passate come parametri siano gli anagrammi l’una dell’altra. 
 Ignora punteggiatura e spazi e ricordate di rendere la stringa tutta in minuscolo. Se le due parole sono anagrammi, ritorna `true`, altrimenti ritorna `false`.*/ 
 
-function areAnagrams(str1, str2) {
-    // Funzione per rimuovere spazi e punteggiatura e convertire la stringa in minuscolo
-    function cleanString(str) {
-        return str.replace(/[^a-z0-9]/gi, '').toLowerCase();
-    }
+// function anagrammi (a, b) {
+//     let array1 = a.split(""); 
+//     let array2 = b.split(""); 
+//     let ordine1 = array1.sort()
+//     let ordine2 = array2.sort()
+//     let stringaDaArray = ordine1.join()
+//     let stringaDaArray1 = ordine2.join()
+//     if (stringaDaArray === stringaDaArray1) {
+//         return true
+//     } else {
+//         return false
+//     }
 
-    // Pulire entrambe le stringhe
-    let cleanedStr1 = cleanString(str1);
-    let cleanedStr2 = cleanString(str2);
+// }
 
-    // Ordinare i caratteri di entrambe le stringhe
-    let sortedStr1 = cleanedStr1.split('').sort().join('');
-    let sortedStr2 = cleanedStr2.split('').sort().join('');
-
-    // Confrontare le stringhe ordinate
-    return sortedStr1 === sortedStr2;
+function anagrammi1 (a, b){
+    let var1 = a.split("").sort().join().toLowerCase()
+    let var2 = b.split("").sort().join().toLowerCase()
+    if (var1===var2) {
+        return true
+}   else {
+    return false
 }
-//console.log(areAnagrams("Ciao", "oaiC"))
-//console.log(areAnagrams("ciao", "alessio"))
+}
+
+console.log(anagrammi1("Ciao", "Cristina"))
+
+
+
 
 
 
