@@ -171,11 +171,9 @@ function anagrammaFinale (par1, par2) {
             array.push(par1[i])
         } return array
 }
-console.log(anagrammi1(["ciao", "notizia"], "tiziano"))
+//console.log(anagrammi1(["ciao", "notizia"], "tiziano"))
 
 /*4. crea una funzione che Partendo da una stringa passata come parametro, ritorna `true` se la stringa è palindroma o `false` se non lo è. */
-
-
 
 /*5. crea una funzione che, Partendo da un numero intero (dai parametri) ritorna un numero che contenga le stesse cifre, ma in ordine contrario. Es. 189 ⇒ 981 */
 
